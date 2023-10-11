@@ -1,4 +1,4 @@
-From 3da8aaae6a70bc3ec6c942ab4d97f2c19b9835a9 Mon Sep 17 00:00:00 2001
+From 0876cccc057a2af6811db01dc30a0d8e95292fcf Mon Sep 17 00:00:00 2001
 From: Pierre-Hugues Husson <phh@phh.me>
 Date: Thu, 14 May 2020 19:54:55 +0200
 Subject: [PATCH 06/22] Add persist.sys.phh.samsung.camera_ids property to
@@ -76,5 +76,5 @@ index e71f43c..97b5c8b 100644
          ALOGE("%s: Transaction error in getting camera ID list from provider '%s': %s",
                  __FUNCTION__, mProviderName.c_str(), linked.description().c_str());
 -- 
-2.34.1
+2.25.1
 

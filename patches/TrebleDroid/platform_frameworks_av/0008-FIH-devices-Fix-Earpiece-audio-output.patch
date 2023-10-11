@@ -1,4 +1,4 @@
-From f9b9f21c775ec5783010e89cb5eb05190d234bd3 Mon Sep 17 00:00:00 2001
+From 792f5bae43e4cfe1c01d412d0c19c6a84cd66317 Mon Sep 17 00:00:00 2001
 From: Pierre-Hugues Husson <phh@phh.me>
 Date: Tue, 24 Apr 2018 00:14:28 +0200
 Subject: [PATCH 08/22] FIH devices: Fix "Earpiece" audio output
@@ -83,5 +83,5 @@ index 45ee70a..2bf5705 100644
  }
  
 -- 
-2.34.1
+2.25.1
 

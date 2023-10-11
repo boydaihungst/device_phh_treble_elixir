@@ -1,4 +1,4 @@
-From a8feab5a751e496672e22f6bb0db4835cc9910f2 Mon Sep 17 00:00:00 2001
+From d4f9f83f3c74371002e689b452cacfb679c437e9 Mon Sep 17 00:00:00 2001
 From: Pierre-Hugues Husson <phh@phh.me>
 Date: Sun, 18 Dec 2022 18:17:30 -0500
 Subject: [PATCH 09/10] FOD support for Samsung and Asus
@@ -278,5 +278,5 @@ index d0d3c2e..c40986f 100644
      class CommandWriter : public CommandWriterBase {
      public:
 -- 
-2.34.1
+2.25.1
 

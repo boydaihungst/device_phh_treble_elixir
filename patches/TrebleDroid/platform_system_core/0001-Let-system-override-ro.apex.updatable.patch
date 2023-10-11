@@ -1,4 +1,4 @@
-From a20736eb533c139408a78837505f5a805a20b0df Mon Sep 17 00:00:00 2001
+From d3bf11314a156c1de4677635b2b92281bc7df721 Mon Sep 17 00:00:00 2001
 From: Pierre-Hugues Husson <phh@phh.me>
 Date: Wed, 23 Feb 2022 17:37:47 -0500
 Subject: [PATCH 01/18] Let system override ro.apex.updatable
@@ -32,5 +32,5 @@ index b1640fa..1ead208 100644
                  LOG(ERROR) << "Do not have permissions to set '" << key << "' to '" << value
                             << "' in property file '" << filename << "': " << error;
 -- 
-2.34.1
+2.25.1
 

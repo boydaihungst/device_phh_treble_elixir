@@ -1,4 +1,4 @@
-From 8989c801d2d8861752316cb274f0a7c1b68a179b Mon Sep 17 00:00:00 2001
+From 51631af30c6dd871dcb6023a5ccfa0d007dc016b Mon Sep 17 00:00:00 2001
 From: Pierre-Hugues Husson <phh@phh.me>
 Date: Wed, 9 Nov 2022 17:10:52 -0500
 Subject: [PATCH 21/22] Fix audio hal 2.0 support. Fixup of Revert "Remove
@@ -89,5 +89,5 @@ index 4069a6b..e9d2af5 100644
              ret = factory->openDevice_7_1(
  #else
 -- 
-2.34.1
+2.25.1
 

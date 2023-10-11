@@ -1,4 +1,4 @@
-From 397da837559494427fb24a109a1d23c0793dec62 Mon Sep 17 00:00:00 2001
+From e2d84df65d54f3c50626745c34ed9cda05ef62f7 Mon Sep 17 00:00:00 2001
 From: Pierre-Hugues Husson <phh@phh.me>
 Date: Mon, 11 Oct 2021 16:10:42 -0400
 Subject: [PATCH 15/22] Revert "Remove support for audio HAL V2 from the
@@ -77,5 +77,5 @@ index d30883a..7bba88c 100644
      name: "libaudiohal@4.0",
      defaults: ["libaudiohal_default"],
 -- 
-2.34.1
+2.25.1
 

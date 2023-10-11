@@ -1,4 +1,4 @@
-From 87a75d3e4a1b0e5283fca120bf4f473d82a0f885 Mon Sep 17 00:00:00 2001
+From 3825ab91dac541fda8ffa6247bcd5876f46fb450 Mon Sep 17 00:00:00 2001
 From: Pierre-Hugues Husson <phh@phh.me>
 Date: Mon, 21 Dec 2020 20:19:11 +0100
 Subject: [PATCH 10/22] Make camera IDs filter-out optional
@@ -26,5 +26,5 @@ index fa4b7b3..314c395 100644
      }
      auto sortFunc =
 -- 
-2.34.1
+2.25.1
 

@@ -1,7 +1,7 @@
-From ad296495375e02f35e7c97f82d838c23d15e296d Mon Sep 17 00:00:00 2001
+From ce4932c232823e1842eb0336e218c604cfe8f734 Mon Sep 17 00:00:00 2001
 From: Pierre-Hugues Husson <phh@phh.me>
 Date: Sun, 18 Dec 2022 18:20:40 -0500
-Subject: [PATCH 30/37] FOD support for Asus ZF8 and Samsung devices
+Subject: [PATCH 30/36] FOD support for Asus ZF8 and Samsung devices
 
 Thanks Asus for providing a free device to make this support
 And thanks @davigamer987 for donating enough to get a Samsung FOD device
@@ -1035,5 +1035,5 @@ index a94c4c07..b7d010a3 100644
              @BiometricManager.Authenticators.Types int strength) {
          final int maxEnrollmentsPerUser = 1;
 -- 
-2.34.1
+2.25.1
 

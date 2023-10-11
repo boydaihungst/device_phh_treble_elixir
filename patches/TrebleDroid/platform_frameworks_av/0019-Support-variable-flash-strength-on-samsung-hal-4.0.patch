@@ -1,4 +1,4 @@
-From 325455051b013aca74ec5b8387619bfb9a32ae26 Mon Sep 17 00:00:00 2001
+From 143229e22cd6ff59d0182a7e99d424b2504ad9a9 Mon Sep 17 00:00:00 2001
 From: Pierre-Hugues Husson <phh@phh.me>
 Date: Mon, 2 May 2022 17:37:09 -0400
 Subject: [PATCH 19/22] Support variable flash strength on samsung hal 4.0
@@ -48,5 +48,5 @@ index cd17a4e..999c885 100644
          s = interface->setTorchMode(enabled ? TorchMode::ON : TorchMode::OFF);
      }
 -- 
-2.34.1
+2.25.1
 

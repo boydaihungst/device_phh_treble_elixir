@@ -1,4 +1,4 @@
-From 3499179b297263c41e29bb4039ef82edaf276564 Mon Sep 17 00:00:00 2001
+From 856498959c55ee1abea9b8265ffa04fc6fb9304c Mon Sep 17 00:00:00 2001
 From: Pierre-Hugues Husson <phh@phh.me>
 Date: Tue, 23 Mar 2021 00:16:42 +0100
 Subject: [PATCH 12/22] Don't crash on unknown audio devices
@@ -22,5 +22,5 @@ index 2bf5705..78812b1 100644
                                      "extension type",
                                      reinterpret_cast<const char*>(attachedDevice.get()));
 -- 
-2.34.1
+2.25.1
 

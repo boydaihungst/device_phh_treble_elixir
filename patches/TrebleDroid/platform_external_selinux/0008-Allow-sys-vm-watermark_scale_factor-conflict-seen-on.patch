@@ -1,7 +1,7 @@
-From 70a2765add6b83c13dcc3b18a957f38ad34f849d Mon Sep 17 00:00:00 2001
+From 6c9a64e93179c2be15c20d7e680c27629b5a7d31 Mon Sep 17 00:00:00 2001
 From: Pierre-Hugues Husson <phh@phh.me>
 Date: Thu, 20 Jul 2023 14:21:21 -0400
-Subject: [PATCH 9/9] Allow /sys/vm/watermark_scale_factor conflict -- seen on
+Subject: [PATCH 8/8] Allow /sys/vm/watermark_scale_factor conflict -- seen on
  Freebox Player Pop
 
 ---
@@ -29,5 +29,5 @@ index 97bf54f..4cf1f2d 100644
              if(strcmp(a_genfscon->path_str, "/") == 0)
                  bypass = 1;
 -- 
-2.34.1
+2.25.1
 

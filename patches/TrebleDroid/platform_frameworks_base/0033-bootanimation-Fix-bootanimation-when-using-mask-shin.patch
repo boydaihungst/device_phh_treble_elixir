@@ -1,7 +1,7 @@
-From 0483eb56a30ec0b27870064ca5f5ace3c8954834 Mon Sep 17 00:00:00 2001
+From 8a8831c0f7132935f87609ed03b629e97b1984a4 Mon Sep 17 00:00:00 2001
 From: Pierre-Hugues Husson <phh@phh.me>
 Date: Wed, 10 May 2023 11:28:27 -0400
-Subject: [PATCH 33/37] bootanimation: Fix bootanimation when using mask+shine
+Subject: [PATCH 33/36] bootanimation: Fix bootanimation when using mask+shine
  rather than animation
 
 This was broken by the commit that automatically resizes animations
@@ -12,10 +12,10 @@ Fixes: e27e0e177fe88584a280e0f7f624c249623efea1
  1 file changed, 20 insertions(+), 18 deletions(-)
 
 diff --git a/cmds/bootanimation/BootAnimation.cpp b/cmds/bootanimation/BootAnimation.cpp
-index 8c579c73..c124be01 100644
+index f22789c3..3b0835e3 100644
 --- a/cmds/bootanimation/BootAnimation.cpp
 +++ b/cmds/bootanimation/BootAnimation.cpp
-@@ -600,24 +600,26 @@ status_t BootAnimation::readyToRun() {
+@@ -504,24 +504,26 @@ status_t BootAnimation::readyToRun() {
      mFlingerSurface = s;
      mTargetInset = -1;
  
@@ -61,5 +61,5 @@ index 8c579c73..c124be01 100644
  
      // Rotate the boot animation according to the value specified in the sysprop
 -- 
-2.34.1
+2.25.1
 

@@ -1,4 +1,4 @@
-From 380973c0001e7d16ad89431f5fd410399b721e38 Mon Sep 17 00:00:00 2001
+From a93ee1bf1f3a90a91a638f562187af8bf89c20d4 Mon Sep 17 00:00:00 2001
 From: Pierre-Hugues Husson <phh@phh.me>
 Date: Thu, 12 Sep 2019 13:05:37 +0200
 Subject: [PATCH 02/18] If Vboot2 fails, fall-back to Vboot1
@@ -42,5 +42,5 @@ index 50a92c8..ba9fbea 100644
  
  void SetInitAvbVersionInRecovery() {
 -- 
-2.34.1
+2.25.1
 
