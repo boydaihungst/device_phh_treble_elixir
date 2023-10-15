@@ -1,6 +1,6 @@
-From 06603e6732ee13e7c301679ab1bb8476f5bc0f1f Mon Sep 17 00:00:00 2001
-From: KrutosVIP <52695559+KrutosVIP@users.noreply.github.com>
-Date: Fri, 10 Mar 2023 09:26:42 +0100
+From dc17516694aca6f4ff46551d429eaf3763d6adf1 Mon Sep 17 00:00:00 2001
+From: Huy Hoang <boydaihungst@gmail.com>
+Date: Sun, 15 Oct 2023 11:19:37 +0700
 Subject: [PATCH] Force settings to open Elixir Updater
 
 ---
@@ -9,11 +9,11 @@ Subject: [PATCH] Force settings to open Elixir Updater
  2 files changed, 15 insertions(+), 5 deletions(-)
 
 diff --git a/res/xml/system_dashboard_fragment.xml b/res/xml/system_dashboard_fragment.xml
-index 06ba87d..a90511a 100644
+index 1f5559f..2d724b9 100644
 --- a/res/xml/system_dashboard_fragment.xml
 +++ b/res/xml/system_dashboard_fragment.xml
-@@ -97,7 +97,9 @@
-         android:order="10"
+@@ -89,7 +89,9 @@
+         android:order="-58"
          settings:keywords="@string/keywords_system_update_settings"
          settings:controller="com.android.settings.system.SystemUpdatePreferenceController">
 -        <intent android:action="android.settings.SYSTEM_UPDATE_SETTINGS"/>
@@ -22,7 +22,7 @@ index 06ba87d..a90511a 100644
 +                android:targetClass="com.elixer.updater.MainActivity" />
      </Preference>
  
- </PreferenceScreen>
+     <Preference
 diff --git a/src/com/android/settings/system/SystemUpdatePreferenceController.java b/src/com/android/settings/system/SystemUpdatePreferenceController.java
 index b2a22ff..6642f02 100644
 --- a/src/com/android/settings/system/SystemUpdatePreferenceController.java
