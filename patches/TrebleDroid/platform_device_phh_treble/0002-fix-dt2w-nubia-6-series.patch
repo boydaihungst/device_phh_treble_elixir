@@ -1,0 +1,55 @@
+From 72c6c2bf47b59fec85d3e091df2cfb032cad9528 Mon Sep 17 00:00:00 2001
+From: Huy Hoang <boydaihungst@gmail.com>
+Date: Fri, 13 Oct 2023 22:16:20 +0700
+Subject: [PATCH 2/3] fix: dt2w nubia 6 series
+
+---
+ base.mk      |  1 +
+ rw-system.sh | 11 ++++++-----
+ 2 files changed, 7 insertions(+), 5 deletions(-)
+
+diff --git a/base.mk b/base.mk
+index a096d0b..1198e61 100644
+--- a/base.mk
++++ b/base.mk
+@@ -138,6 +138,7 @@ PRODUCT_COPY_FILES += \
+ 	device/phh/treble/files/daisy-uinput-fpc.kl:system/phh/daisy-uinput-fpc.kl \
+ 	device/phh/treble/files/daisy-uinput-goodix.kl:system/phh/daisy-uinput-goodix.kl \
+ 	device/phh/treble/files/nubia-nubia_synaptics_dsx.kl:system/phh/nubia-nubia_synaptics_dsx.kl \
++	device/phh/treble/files/nubia-nubia_goodix_ts.kl:system/phh/nubia-nubia_goodix_ts.kl \
+ 	device/phh/treble/files/unihertz-mtk-kpd.kl:system/phh/unihertz-mtk-kpd.kl \
+ 	device/phh/treble/files/unihertz-mtk-tpd.kl:system/phh/unihertz-mtk-tpd.kl \
+ 	device/phh/treble/files/unihertz-mtk-tpd-kpd.kl:system/phh/unihertz-mtk-tpd-kpd.kl \
+diff --git a/rw-system.sh b/rw-system.sh
+index 762b92e..3302715 100644
+--- a/rw-system.sh
++++ b/rw-system.sh
+@@ -317,6 +317,12 @@ changeKeylayout() {
+         changed=true
+     fi
+ 
++    if getprop ro.vendor.build.fingerprint | grep -q -e nubia/NX669; then
++        cp /system/phh/nubia-nubia_goodix_ts.kl /mnt/phh/keylayout/nubia_goodix_ts.kl
++        chmod 0644 /mnt/phh/keylayout/nubia_goodix_ts.kl
++        changed=true
++    fi
++
+     if [ "$changed" = true ]; then
+         mount -o bind /mnt/phh/keylayout /system/usr/keylayout
+         restorecon -R /system/usr/keylayout
+@@ -725,12 +731,7 @@ if getprop ro.vendor.build.fingerprint | grep -q -e nubia/NX669; then
+     umount /vendor/etc/audio
+     sku="$(getprop ro.boot.product.vendor.sku)"
+     mount /vendor/etc/audio/sku_${sku}_qssi/audio_policy_configuration.xml /vendor/etc/audio/sku_$sku/audio_policy_configuration.xml
+-    cp /system/phh/nubia-nubia_goodix_ts.kl /mnt/phh/keylayout/Vendor_beef_Product_dead.kl
+-    chmod 0644 /mnt/phh/keylayout/Vendor_beef_Product_dead.kl
+-    # high bright mode
+     chmod 0666 /sys/kernel/lcd_enhance/hbm_state
+-    chmod 0666 /sys/kernel/lcd_enhance/hbm_mode
+-    changed=true
+ fi
+ 
+ # For ZF8, the "best" audio policy isn't the one for QSSI
+-- 
+2.42.0
+
