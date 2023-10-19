@@ -317,6 +317,12 @@ changeKeylayout() {
         changed=true
     fi
 
+    if getprop ro.vendor.build.fingerprint | grep -q -e nubia/NX669; then
+        cp /system/phh/nubia-nubia_goodix_ts.kl /mnt/phh/keylayout/nubia_goodix_ts.kl
+        chmod 0644 /mnt/phh/keylayout/nubia_goodix_ts.kl
+        changed=true
+    fi
+
     if [ "$changed" = true ]; then
         mount -o bind /mnt/phh/keylayout /system/usr/keylayout
         restorecon -R /system/usr/keylayout
@@ -332,19 +338,21 @@ if [ "$(getprop ro.product.vendor.manufacturer)" = motorola ] && getprop ro.vend
     setprop persist.sys.overlay.devinputjack true
 fi
 
-if mount -o remount,rw /system; then
-    resize2fs "$(grep ' /system ' /proc/mounts | cut -d ' ' -f 1)" || true
-else
-    mount -o remount,rw /
-    major="$(stat -c '%D' /.|sed -E 's/^([0-9a-f]+)([0-9a-f]{2})$/\1/g')"
-    minor="$(stat -c '%D' /.|sed -E 's/^([0-9a-f]+)([0-9a-f]{2})$/\2/g')"
-    mknod /dev/tmp-phh b $((0x$major)) $((0x$minor))
-    blockdev --setrw /dev/tmp-phh
-    resize2fs /dev/root || true
-    resize2fs /dev/tmp-phh || true
+if ! getprop ro.vendor.build.fingerprint |grep samsung/;then
+    if mount -o remount,rw /system; then
+        resize2fs "$(grep ' /system ' /proc/mounts | cut -d ' ' -f 1)" || true
+    else
+        mount -o remount,rw /
+        major="$(stat -c '%D' /.|sed -E 's/^([0-9a-f]+)([0-9a-f]{2})$/\1/g')"
+        minor="$(stat -c '%D' /.|sed -E 's/^([0-9a-f]+)([0-9a-f]{2})$/\2/g')"
+        mknod /dev/tmp-phh b $((0x$major)) $((0x$minor))
+        blockdev --setrw /dev/tmp-phh
+        resize2fs /dev/root || true
+        resize2fs /dev/tmp-phh || true
+    fi
+    mount -o remount,ro /system || true
+    mount -o remount,ro / || true
 fi
-mount -o remount,ro /system || true
-mount -o remount,ro / || true
 
 for part in /dev/block/bootdevice/by-name/oppodycnvbk  /dev/block/platform/bootdevice/by-name/nvdata;do
     if [ -b "$part" ];then
@@ -723,6 +731,9 @@ if getprop ro.vendor.build.fingerprint | grep -q -e nubia/NX669; then
     umount /vendor/etc/audio
     sku="$(getprop ro.boot.product.vendor.sku)"
     mount /vendor/etc/audio/sku_${sku}_qssi/audio_policy_configuration.xml /vendor/etc/audio/sku_$sku/audio_policy_configuration.xml
+    chmod 0666 /sys/kernel/lcd_enhance/hbm_state
+    # Disable back panel touch (which would hide keyboard if accidentally touched)
+    setprop persist.sys.phh.evgrab nubia_sar0_channel0
 fi
 
 # For ZF8, the "best" audio policy isn't the one for QSSI
@@ -1165,3 +1176,7 @@ fi
 if getprop ro.product.vendor.device | grep -q -e TECNO-LG8n; then
     chown -R system:system /sys/class/leds/vibrator_single/
 fi
+
+# Override media volume steps
+resetprop_phh ro.config.media_vol_steps 25
+resetprop_phh ro.config.media_vol_default 8
